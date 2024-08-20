@@ -10,7 +10,7 @@
 // document.querySelector('.score').textContent = 10;
 
 // document.querySelector('.guess').value = 25;
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 const button = document.querySelector('.check');
 const highscore = [];
@@ -24,9 +24,12 @@ button.addEventListener('click', () => {
   if (score < 1) {
     document.querySelector('.score').textContent = 0;
     document.querySelector('.message').textContent = `Game Over`;
+    button.disabled = true; // Disable button when game over
+    return; // Exit the function early
+  }
 
-    //then it checks if there is a number
-  } else if (!guess) {
+  //then it checks if there is a number
+  if (!guess) {
     document.querySelector('.message').textContent = `❌ No Number!`;
   } else if (guess === secretNumber) {
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -36,6 +39,7 @@ button.addEventListener('click', () => {
     document.querySelector(
       '.label-highscore'
     ).textContent = `🥇 Highscore: ${score} `;
+    button.style.display = 'none';
   } else if (guess > secretNumber) {
     score--;
     document.querySelector('.score').textContent = score;
@@ -51,6 +55,10 @@ button.addEventListener('click', () => {
 const resetGame = document.querySelector('.again');
 
 resetGame.addEventListener('click', () => {
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  score = 20;
+  button.disabled = false;
+  button.style.display = 'block';
   document.querySelector('.number').textContent = '?';
   document.querySelector('.score').textContent = 20;
   document.querySelector('.message').textContent = `Start guessing...`;
