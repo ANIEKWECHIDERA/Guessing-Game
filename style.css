@@ -117,3 +117,59 @@ h1 {
 .label-score {
   margin-bottom: 2rem;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%; /* Adjust base font size for smaller screens */
+  }
+
+  header {
+    height: 25vh; /* Adjust header height */
+  }
+
+  main {
+    flex-direction: column; /* Stack left and right sections vertically */
+    height: auto; /* Allow main content to grow based on its content */
+  }
+
+  .left,
+  .right {
+    width: 90%; /* Adjust width for mobile */
+  }
+
+  .left {
+    margin-bottom: 2rem; /* Add some spacing between sections */
+    margin-top: 100px;
+  }
+
+  .message {
+    margin-top: 50px;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Reduce font size */
+    top: 45%; /* Adjust position for smaller screens */
+  }
+
+  .number {
+    font-size: 4rem; /* Reduce font size */
+    width: 10rem; /* Adjust width */
+    padding: 2rem 0; /* Adjust padding */
+  }
+
+  .guess {
+    font-size: 3rem; /* Reduce font size */
+    width: 20rem; /* Adjust width */
+    padding: 1.5rem; /* Adjust padding */
+  }
+
+  .btn {
+    font-size: 1.5rem; /* Reduce font size */
+    padding: 1.5rem 2rem; /* Adjust padding */
+  }
+
+  .between,
+  .again {
+    font-size: 1rem; /* Reduce font size */
+  }
+}
